@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#f7d3e2">
+<title>Maitree ❤ Cutie</title>
+<meta name="description" content="A little interactive love story.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- hidden defs for the infinity-loader gradient -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="infGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ee7eb1"/>
+      <stop offset="100%" stop-color="#9a72e0"/>
+    </linearGradient>
+  </defs>
+</svg>
+</head>
+<body>
+
+<div class="app-root" id="appRoot">
+
+  <!-- ambient floating name text, always behind everything -->
+  <div class="bg-text-field" id="bgTextField" aria-hidden="true"></div>
+
+  <!-- floating hearts / particles, above background, below cards -->
+  <div class="hearts-layer" id="heartsLayer" aria-hidden="true"></div>
+
+  <!-- persistent corner watermark, present on every scene -->
+  <div class="watermark watermark--corner" aria-hidden="true">BHAUMIK.8</div>
+
+  <!-- ================= LOADING ================= -->
+  <section class="scene scene--loading active" id="scene-loading">
+    <div class="infinity-loader" aria-hidden="true">
+      <svg viewBox="0 0 200 100" class="infinity-svg">
+        <path class="infinity-path" d="M50,50 C50,20 90,20 100,50 C110,80 150,80 150,50 C150,20 110,20 100,50 C90,80 50,80 50,50 Z" />
+      </svg>
+    </div>
+    <p class="loading-label">finding the right words<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+  </section>
+
+  <!-- ================= WELCOME ================= -->
+  <section class="scene scene--welcome" id="scene-welcome">
+    <div class="glass-card welcome-card">
+      <p class="reveal-line line-hey">Hey Cutie <span class="heart">❤️</span></p>
+      <p class="reveal-line line-name">Maitree</p>
+      <p class="reveal-line line-sentence">You didn't just enter my life — you rearranged the furniture. I like it better this way.</p>
+      <button class="btn btn--start" id="startBtn" type="button">
+        <span>Start</span> <span class="heart">❤️</span>
+      </button>
+    </div>
+    <p class="watermark watermark--under-card" aria-hidden="true">a little something made by BHAUMIK.8</p>
+  </section>
+
+  <!-- ================= QUESTION ================= -->
+  <section class="scene scene--question" id="scene-question">
+    <div class="glass-card question-card">
+      <p class="question-text">Okay Cutie, serious question — can I be yours, officially, forever?</p>
+      <div class="choice-row" id="choiceRow">
+        <button class="btn btn--yes" id="yesBtn" type="button">YES <span class="heart">❤️</span></button>
+        <button class="btn btn--no" id="noBtn" type="button">NO 🙂</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- shared toast for the NO button's excuses -->
+  <div class="toast" id="noToast" aria-hidden="true"></div>
+
+  <!-- ================= CELEBRATION OVERLAY ================= -->
+  <div class="celebration" id="celebration" aria-hidden="true">
+    <div class="celebration-burst" id="burst"></div>
+    <div class="celebration-infinity">∞</div>
+    <p class="celebration-text">You just unlocked my happiest smile ❤️</p>
+  </div>
+
+  <!-- ================= CAT SCENE ================= -->
+  <section class="scene scene--cat" id="scene-cat">
+    <div class="bokeh-field" id="catBokehField" aria-hidden="true"></div>
+    <div class="image-stage" id="catStage">
+      <img src="assets/cat.png" alt="A very excited cat, thanking Cutie" class="cat-image" id="catImage">
+    </div>
+  </section>
+
+  <!-- ================= FINAL SCENE ================= -->
+  <section class="scene scene--final" id="scene-final">
+    <div class="bokeh-field" id="finalBokehField" aria-hidden="true"></div>
+    <div class="final-glow" aria-hidden="true"></div>
+    <div class="image-stage" id="finalStage">
+      <img src="assets/iloveyoukhushi.png" alt="I love you, Khushi" class="final-image" id="finalImage">
+    </div>
+    <div class="infinity-forever" aria-hidden="true">∞</div>
+    <p class="floating-message" id="floatingMessage"></p>
+    <p class="watermark watermark--final" aria-hidden="true">forever &amp; always — BHAUMIK.8</p>
+    <button class="sound-hint" id="soundHint" type="button">tap anywhere for sound 🔊</button>
+  </section>
+
+  <audio id="bgMusic" src="assets/music.mp3" preload="auto" loop playsinline></audio>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
