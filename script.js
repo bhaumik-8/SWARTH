@@ -289,7 +289,7 @@
     setTimeout(() => {
       clearInterval(catHeartTimer);
       enterFinalScene();
-    }, 5000);
+    }, 4000);
   }
 
   /* ---------- final scene — forever ---------- */
